@@ -1,24 +1,58 @@
 import java.util.Scanner;
 
-public class SafeInput {
+public class DevTest
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        double income = getRangedDouble(in,"Enter your income", 5000, 100000);
+        System.out.println("You said the income is " + income);
+
+
+
+        /*int favNum = getRangedInt(in,"Enter your fav number",1,10);
+        System.out.println("You said fav num is " + favNum);
+
+         */
+
+
+        /*double sal = getDouble(in, "Enter your salary");
+        System.out.println("Your salary is " + sal);
+
+         */
+
+
+        /*String name = getNonZeroLenString(in, "Enter your name");
+        System.out.println("Name is " + name);
+
+        */
+       /* int age = getInt(in,"Enter your age");
+        System.out.println("You said your age is " + age);
+
+        */
+    }
+
     /**
      * gets a string value from the user that is at lease one character
      *
-     * @param pipe   Scanner to read input
+     * @param pipe Scanner to read input
      * @param prompt Prompt to tell the user what to input
      * @return String that is at least one character
      */
-    public static String getNonZeroLenString(Scanner pipe, String prompt) {
+    public static String getNonZeroLenString(Scanner pipe, String prompt)
+    {
         String retVal = "";
 
-        do {
+        do
+        {
             System.out.print(prompt + ": ");
             retVal = pipe.nextLine();
-            if (retVal.isEmpty())
+            if(retVal.isEmpty())
                 System.out.println("You must enter at lease one character. ");
 
         }
-        while (retVal.isEmpty());
+        while(retVal.isEmpty());
         return retVal;
 
     }
@@ -26,31 +60,37 @@ public class SafeInput {
     /**
      * Gets an unconstrained int value from the user
      *
-     * @param pipe   Scanner for input
+     * @param pipe Scanner for input
      * @param prompt prompt that asks the user what to input
      * @return unconstrained int value
      */
-    public static int getInt(Scanner pipe, String prompt) {
+    public static int getInt(Scanner pipe, String prompt)
+    {
 
         int retVal = 0;
         String trash;
         boolean done = false;
 
-        do {
+        do
+        {
             System.out.print(prompt + ": ");
-            if (pipe.hasNextInt()) {
+            if(pipe.hasNextInt())
+            {
                 retVal = pipe.nextInt();
                 pipe.nextLine();
                 done = true;
-            } else {
+            }
+            else
+            {
                 trash = pipe.nextLine();
                 System.out.println("You must enter a valid integer not " + trash);
             }
 
         }
-        while (!done);
+        while(!done);
         return retVal;
     }
+
     /**
      * Gets an unconstrained int value from the user
      *
