@@ -56,7 +56,7 @@ public class SafeInput {
      *
      * @param pipe Scanner for input
      * @param prompt prompt that asks the user what to input
-     * @return
+     * @return returns an integer
      */
     public static double getDouble(Scanner pipe, String prompt)
     {
@@ -122,7 +122,7 @@ public class SafeInput {
         return retVal;
     }
     /**
-     * Gets an double value from the user within a specified inclusive range
+     * Gets a double value from the user within a specified inclusive range
      *
      * @param pipe Scanner for input
      * @param prompt prompt that asks the user what to input
@@ -186,7 +186,7 @@ public class SafeInput {
             }
             else if (input.equalsIgnoreCase("N"))
             {
-                retVal = true;
+                retVal = false;
                 done = true;
             }
             else

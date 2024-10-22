@@ -6,9 +6,23 @@ public class DevTest
     {
         Scanner in = new Scanner(System.in);
 
-        double income = getRangedDouble(in,"Enter your income", 5000, 100000);
-        System.out.println("You said the income is " + income);
+        /* boolean timeToGo = SafeInput.getYNConfirm(in, "Do you want to leave?");
 
+        if(timeToGo == true)
+        {
+            System.out.println("You may leave.");
+        }
+        if (timeToGo == false) {
+            System.out.println("just leave anyways.");
+        }
+
+         */
+
+
+
+        /*double income = getRangedDouble(in,"Enter your income", 5000, 100000);
+        System.out.println("You said the income is " + income);
+        */
 
 
         /*int favNum = getRangedInt(in,"Enter your fav number",1,10);
@@ -22,11 +36,13 @@ public class DevTest
 
          */
 
-
-        /*String name = getNonZeroLenString(in, "Enter your name");
+        /*
+        String name = getNonZeroLenString(in, "Enter your name");
         System.out.println("Name is " + name);
 
-        */
+         */
+
+
        /* int age = getInt(in,"Enter your age");
         System.out.println("You said your age is " + age);
 
@@ -226,7 +242,7 @@ public class DevTest
             }
             else if (input.equalsIgnoreCase("N"))
             {
-                retVal = true;
+                retVal = false;
                 done = true;
             }
             else
