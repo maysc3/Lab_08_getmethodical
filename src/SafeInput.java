@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class SafeInput {
+public class SafeInput
+{
     /**
      * gets a string value from the user that is at lease one character
      *
@@ -196,5 +197,83 @@ public class SafeInput {
         }
         while(!done);
         return retVal;
+    }
+
+    /**
+    * gets a string value from the user of [YyNn]
+     *
+     * @param pipe Scanner to read input
+     * @param prompt Prompt to tell the user what to input
+     * @param regEx String - tells the user what to input
+     * @return
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+
+        boolean done = false;
+        String retVal = "";
+
+        do
+        {
+            System.out.print(prompt + regEx + ": "  );
+            retVal = pipe.nextLine().trim();
+            if(retVal.matches(regEx))
+                done = true;
+            else
+            {
+                System.out.println("You must enter a value that matches pattern " + regEx + " not " + retVal);
+            }
+
+        }
+        while(!done);
+        return retVal;
+    }
+    /**
+     * Makes a pretty header
+     *
+     * @param msg message for header
+     * @param pattern symbol that gets printed around the message in the header
+     */
+    public static void prettyHeader(String msg, String pattern) {
+        int msgL = msg.length();
+        int totalL = 0;
+        int spacing = 0;
+        for (int s = 0; s < 60; s++) {
+            System.out.print(pattern);
+        }
+        System.out.println();
+        if (msgL % 2 == 0) {
+            for (int s = 0; s < 3; s++) {
+                System.out.print(pattern);
+            }
+            totalL = 54;
+            spacing = (totalL - msg.length()) / 2;
+            System.out.printf("%" + spacing + "s%s", "", msg);
+            System.out.printf("%" + spacing + "s", "");
+            for (int s = 0; s < 3; s++) {
+                System.out.print(pattern);
+            }
+
+        }
+        if (msgL % 2 == 1)
+        {
+            for (int s = 0; s <= 3; s++) {
+                System.out.print(pattern);
+            }
+            totalL = 53;
+            spacing = (totalL - msg.length()) / 2;
+            System.out.printf("%" + spacing + "s%s", "", msg);
+            System.out.printf("%" + spacing + "s", "");
+            for (int s = 0; s < 3; s++)
+            {
+                System.out.print(pattern);
+
+            }
+        }
+        System.out.println();
+        for (int s = 0; s < 60; s++)
+        {
+            System.out.print(pattern);
+        }
     }
 }
